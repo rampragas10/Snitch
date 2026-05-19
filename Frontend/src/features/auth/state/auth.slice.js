@@ -18,6 +18,7 @@ const authSlice = createSlice({
             state.error = action.payload
         }
     }
+    
 })
 
 export const { setError, setLoading, setUser } = authSlice.actions
