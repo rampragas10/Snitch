@@ -1,7 +1,16 @@
 import dotenv from "dotenv";
 import app from "./src/app.js";
 import connectDB from "./src/config/db.js";
+// import express from "express";
 import path from "path";
+import { fileURLToPath } from "url";
+
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 
 dotenv.config();
 
@@ -11,8 +20,8 @@ const PORT = process.env.PORT || 3000;
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
-  app.get("*", (_, res) => {
-    res.sendFile(path.join(__dirname, "../Frontend", "dist", "index.html"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"));
   });
 }
 
