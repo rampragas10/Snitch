@@ -38,10 +38,10 @@ passport.use(
   ),
 );
 
-app.get("/", (_req, res) => {
-  res.status(200).json({ message: "Server is running" });
-   res.redirect("/api/auth/login");
-});
+// app.get("/", (_req, res) => {
+//   res.status(200).json({ message: "Server is running" });
+//    res.redirect("/api/auth/login");
+// });
 
 app.use("/api/auth", authRouter);
 app.use("/api/products", productRouter);
